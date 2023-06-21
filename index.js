@@ -60,16 +60,12 @@ const writeToFile = ({title, description, installation, usage, contributing, tes
   // Add a variable to store the badge URL based on the selected license
   let badgeURL;
 
-  // Set the badge URL based on the selected license
+  // Set the license information based on the selected license
   if (license === 'GNU General Public License v3.0') {
     badgeURL = 'https://img.shields.io/badge/License-GPLv3-blue.svg';
-  } else if (license === 'MIT License') {
-    badgeURL = 'https://img.shields.io/badge/License-MIT-yellow.svg';
-  }
-  // Set the license info based on the selected license
-  if (license === 'GNU General Public License v3.0') {
     licenseInfo = 'Please refer to the GNU General Public License v3.0 information [here](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).';
   } else if (license === 'MIT License') {
+    badgeURL = 'https://img.shields.io/badge/License-MIT-yellow.svg';
     licenseInfo = 'Please refer to the MIT License information [here](https://opensource.org/license/mit/).';
   }
 
@@ -114,6 +110,7 @@ ${licenseInfo}
 ## Questions
 
 Github profile: [${github}](${github}).
+
 If you have any additional questions about this application, please reach out to me via email at [${email}](${email}).`;
 };
 
