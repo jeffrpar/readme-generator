@@ -34,7 +34,7 @@ const questions = () => {
       {
         type: 'input',
         message: 'Provide instructions for testing your application.',
-        name: 'testing',
+        name: 'tests',
       },
       {
         type: 'list',

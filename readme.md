@@ -28,7 +28,7 @@ n/a
 
 ## Tests
 
-undefined
+Test this application by entering different answers into the prompts.
 
 ## License
 
