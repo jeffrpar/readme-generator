@@ -39,7 +39,7 @@ const questions = () => {
       {
         type: 'list',
         message: 'Choose a license for your application.',
-        choices: ['GNU General Public License v3,0', 'MIT License'],
+        choices: ['GNU General Public License v3.0', 'MIT License'],
         name: 'license',
       },
       {
@@ -47,13 +47,33 @@ const questions = () => {
         message: 'Provide the link to your github profile.',
         name: 'github',
       },
+      {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+      },
     ])
 };
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-const writeToFile = ({title, description, installation, usage, contributing, tests, license, github, email}) =>
-`# ${title}
+const writeToFile = ({title, description, installation, usage, contributing, tests, license, github, email}) => {
+  // Add a variable to store the badge URL based on the selected license
+  let badgeURL;
+
+  // Set the badge URL based on the selected license
+  if (license === 'GNU General Public License v3.0') {
+    badgeURL = 'https://img.shields.io/badge/License-GPLv3-blue.svg';
+  } else if (license === 'MIT License') {
+    badgeURL = 'https://img.shields.io/badge/License-MIT-yellow.svg';
+  }
+  // Set the license info based on the selected license
+  if (license === 'GNU General Public License v3.0') {
+    licenseInfo = 'Please refer to the GNU General Public License v3.0 information [here](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).';
+  } else if (license === 'MIT License') {
+    licenseInfo = 'Please refer to the MIT License information [here](https://opensource.org/license/mit/).';
+  }
+
+return `# ${title}
 
 ## Description
 
@@ -87,13 +107,15 @@ ${tests}
 
 ## License
 
-${license}
+![License](${badgeURL})
+
+${licenseInfo}
 
 ## Questions
 
 Github profile: [${github}](${github}).
-If you have any additional questions about this application, please reach out to me via email at [${email}](${email}).
-`
+If you have any additional questions about this application, please reach out to me via email at [${email}](${email}).`;
+};
 
 // TODO: Create a function to initialize app
 const init = () => {
